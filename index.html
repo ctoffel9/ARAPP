@@ -3,9 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" light="defaultLightsEnabled: false">
       <a-assets>
         <img id="card" src="mbappe.png" />
  	<a-asset-item id="avatarModel" 
@@ -14,16 +15,25 @@
 	<a-asset-item id="RealMadrid" 
 	src="Model/realmadrid/scene.gltf"></a-asset-item>
       </a-assets>
+	<a-asset-item id="fishcut" 
+	src="Model/fish/scene.gltf"></a-asset-item>
+      </a-assets>
+	<a-asset-item id="oplane" 
+	src="Model/dddd/untitled.gltf"></a-asset-item>
+      </a-assets>
 
+<a-entity light="type: ambient; color: #CCC; intensity: 1.5"></a-entity>
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
-<a-light type="directional" light="castShadow:true;" position="1 1 1" intensity="1" shadow-camera-automatic="#objects"></a-light>
-
-
 	<a-entity mindar-image-target="targetIndex: 0">
-        <a-plane src="#card" position="0 0 0" height="1.4" width="1" rotation="0 0 0" alpha-test="1"></a-plane>
+<!--<a-plane src="#card" position="0 0 0" height="1.4" width="1" rotation="0 0 0" alpha-test="1"></a-plane>-->	
+<!--<a-gltf-model rotation="90 0 0 " position="0 0 0.5" scale="0.03 0.03 0.03" src="#RealMadrid" animation="property: rotation; to: 90 0 360; dur: 2000; easing: linear; loop: true; dir: reverse" ></a-gltf-model>-->
 
-<a-gltf-model rotation="90 0 0 " position="0 0 0.5" scale="0.03 0.03 0.03" src="#RealMadrid" animation="property: rotation; to: 90 0 360; dur: 2000; easing: linear; loop: true; dir: reverse"></a-gltf-model>-->
+<!--<a-gltf-model src="#fishcut" position="-0.73 0 0.3" scale="0.3 0.3 0.3" rotation="90 0 0"></a-gltf-model>-->	
+<a-gltf-model src="#oplane" position="0	0 0" scale="5 5 5" rotation="0 270 0" animation-mixer></a-gltf-model>
+<a-plane src="light.png" position="-0.22 0.32 0.01" scale="0.5 0.5 0.5" transparent="true" opacity="0" animation="property: opacity; to: 1; dur 100; easing: linear; loop: true; dir: alternate"></a-plane>
+
+<a-plane material="blending: subtractive" color="green" rotation="0 0 40" width="1.8" height="0.2" position="0 1.2 0.012" transparent="true" opacity="0.7"animation="property: position; to: 0 -1.2 0.01; dur: 2000; easing: easeInOutQuad; loop: true;"> <a-plane material="blending: subtractive" color="green" transparent="true" opacity="0.3" color="white" width="2" height="0.08" position="0 0.2 0.013"></a-plane></a-plane>
 
       </a-entity>
     </a-scene>
