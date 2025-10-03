@@ -21,7 +21,8 @@
 
 
 	<a-entity mindar-image-target="targetIndex: 0">
-        <a-plane src="#card" position="0 0 0" height="1.4" width="1" rotation="0 0 0"></a-plane>
+        <a-plane src="#card" position="0 0 0" height="1.4" width="1" rotation="0 0 0" alpha-test="1"></a-plane>
+	<a-video position="0 0 0.1" src="VID.mp4" width="1.6" height="0.9"></a-video>
 	<a-gltf-model rotation="90 0 0 " position="0 0 0.5" scale="0.03 0.03 0.03" src="#RealMadrid" animation="property: rotation; to: 90 0 360; dur: 2000; easing: linear; loop: true; dir: reverese">
       </a-entity>
     </a-scene>
