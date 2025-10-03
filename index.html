@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" light="defaultLightsEnabled: false">
+    <a-scene mindar-image="imageTargetSrc: targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="mbappe.png" />
  	<a-asset-item id="avatarModel" 
@@ -31,9 +31,49 @@
 
 <!--<a-gltf-model src="#fishcut" position="-0.73 0 0.3" scale="0.3 0.3 0.3" rotation="90 0 0"></a-gltf-model>-->	
 <a-gltf-model src="#oplane" position="0	0 0" scale="5 5 5" rotation="0 270 0" animation-mixer></a-gltf-model>
-<a-plane src="light.png" position="-0.22 0.32 0.01" scale="0.5 0.5 0.5" transparent="true" opacity="0" animation="property: opacity; to: 1; dur 100; easing: linear; loop: true; dir: alternate"></a-plane>
 
-<a-plane material="blending: subtractive" color="green" rotation="0 0 40" width="1.8" height="0.2" position="0 1.2 0.012" transparent="true" opacity="0.7"animation="property: position; to: 0 -1.2 0.01; dur: 2000; easing: easeInOutQuad; loop: true;"> <a-plane material="blending: subtractive" color="green" transparent="true" opacity="0.3" color="white" width="2" height="0.08" position="0 0.2 0.013"></a-plane></a-plane>
+<a-plane src="light.png" 
+	 position="-0.22 0.32 0.01" 
+	 scale="0.5 0.5 0.5" 
+	 transparent="true" 
+	 opacity="0" 
+	 animation="property: opacity; 
+		    to: 1; 
+		    dur 100; 
+		    easing: linear; 
+		    loop: true; 
+		    dir: alternate">
+</a-plane>
+
+<!-- Masking Highlight-->
+<a-plane position="0.989 0 0.014" height="2" transparent="true" opacity="0"></a-plane>
+<a-plane position="-0.9999 0 0.014" height="2" transparent="true" opacity="0"></a-plane>
+<a-plane position="0 1.7 0.014" width="2" height="2" transparent="true" opacity="0"></a-plane>
+<a-plane position="0 -1.7 0.014" width="2" height="2" transparent="true" opacity="0"></a-plane>
+
+<!-- Highlight -->
+<a-plane material="blending: additive" 
+	 color="#502ADB" 
+	 rotation="0 0 40" 
+	 width="1.8" height="0.2" 
+	 position="0 1.4 0.012" 
+	 transparent="true" opacity="0.8"
+	 animation="property: position; 
+		    to: 0 -1.4 0.01; 
+		    dur: 2000; 
+		    easing: easeInOutQuad; 
+		    loop: true;"
+> 
+	 <a-plane material="blending: additive" 
+		  color="#502ADB" 
+		  transparent="true" 
+	          opacity="0.4" 
+		  color="white" 
+		  width="2" 
+		  height="0.08" 
+		  position="0 0.2 0">
+	 </a-plane>
+</a-plane>
 
       </a-entity>
     </a-scene>
